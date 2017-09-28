@@ -32,6 +32,7 @@ engine.on('error', function(err) {
 engine.start(); // Required by the provider engine.
 
 module.exports = {
+  contracts_directory: 'src/contracts',
   networks: {
     development_infura_ropsten: {
       network_id: 3,    // Official ropsten network id

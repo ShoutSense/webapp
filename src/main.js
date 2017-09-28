@@ -4,7 +4,7 @@ import Vuetify from 'vuetify'
 import router from './router'
 import store from './store'
 import { sync } from 'vuex-router-sync'
-import BlockchainStatus from './components/BlockchainStatus'
+import BlockchainStatus from './views/BlockchainStatus'
 
 Vue.use(Vuetify)
 sync(store, router)
