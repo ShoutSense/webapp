@@ -16,8 +16,9 @@ var hdwallet = hdkey.fromMasterSeed(bip39.mnemonicToSeed(mnemonic));
 
 // Get the first account using the standard hd path.
 const wallet_hdpath = "m/44'/60'/0'/0/";
-const wallet = hdwallet.derivePath(wallet_hdpath + "0").getWallet();
+const wallet = hdwallet.derivePath(wallet_hdpath + "1").getWallet();
 const address = "0x" + wallet.getAddress().toString("hex");
+console.log(address);
 
 const providerUrl = "https://ropsten.infura.io/" + DeploySecrets.infuraKey;
 const engine = new ProviderEngine();
@@ -43,6 +44,11 @@ module.exports = {
       host: "localhost",
       port: 8545,
       network_id: "*" // Match any network id
+    },
+    development_infura_rinkeby: {
+      network_id: 4,    // Official rinkeby network id
+      provider: engine, // Use our custom provider
+      from: address     // Use the address we derived
     }
   }
 };
